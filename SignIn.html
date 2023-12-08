@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>NETFLIX</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="logo.svg" alt="logo" class="logo" />
+      <form id="loginForm" class="katrori">
+        <h1>Sign In</h1>
+        <input id="username" placeholder="Email or phone number" />
+        <input id="password" placeholder="Password" type="password" />
+        <button class="signn" type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          const storedData = localStorage.getItem("userData");
+          const userData = storedData ? JSON.parse(storedData) : {};
+
+          if (
+            username === userData.username &&
+            password === userData.password
+          ) {
+            alert("Login successful!");
+          } else {
+            alert("Invalid credentials!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
