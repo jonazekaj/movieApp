@@ -28,7 +28,6 @@
           const storedData = localStorage.getItem("usersData");
           const usersData = storedData ? JSON.parse(storedData) : {};
 
-          // Check if the user exists (either by username or email) and the password matches
           let isValidLogin = false;
           for (let user in usersData) {
             if (
