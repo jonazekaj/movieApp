@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/shows.css" />
+    <link rel="stylesheet" href="/css/style2.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>TV Show Information</title>
+    <style>
+      .show-container {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .showTitle {
+        color: #e50914;
+      }
+      .showImg {
+        max-width: 100px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        class="netflixLogo"
+        src="/images/Fill-14.png"
+        alt="Logo"
+        class="logo"
+      />
+      <nav class="nav">
+        <ul>
+          <li><a href="homePage.html">Home</a></li>
+          <li><a href="tvShows.html">TV Shows</a></li>
+          <li><a href="#">Latest</a></li>
+          <li><a href="#">My List</a></li>
+          <button id="logoutButton">Logout</button>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="content-row">
+      <div id="showInfo"></div>
+    </section>
+    <footer>
+      <p>Mock Netflix © 2023</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tvShows = [
+          "Breaking Bad",
+          "Game of Thrones",
+          "The Wire",
+          "Friends",
+          "Sherlock",
+          "The Sopranos",
+          "Stranger Things",
+          "The Crown",
+          "Black Mirror",
+          "Westworld",
+          "The Office",
+          "Parks and Recreation",
+          "The Mandalorian",
+          "Better Call Saul",
+          "The Witcher",
+          "Fargo",
+          "True Detective",
+          "The Boys",
+          "Peaky Blinders",
+          "The Handmaid's Tale",
+        ];
+        tvShows.forEach((showTitle) => {
+          fetchShowData(showTitle);
+        });
+      });
+
+      function fetchShowData(showTitle) {
+        const apiKey = "71d729ce";
+        const url = `http://www.omdbapi.com/?t=${encodeURIComponent(
+          showTitle
+        )}&apikey=${apiKey}&type=series`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            displayShowData(data);
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      }
+
+      function displayShowData(show) {
+        const showInfoDiv = document.getElementById("showInfo");
+        const imdbUrl = `https://www.imdb.com/title/${show.imdbID}/`;
+
+        const showElement = document.createElement("div");
+        showElement.className = "show-container";
+
+        showElement.innerHTML = `
+                <h1 class='showTitle'><a class='showLink' href="${imdbUrl}" target="_blank">${show.Title} (${show.Year})</a></h1>
+                <p class="showInformation">${show.Plot}</p>
+                <img class='showImg' src="${show.Poster}" alt="Poster of ${show.Title}">
+            `;
+
+        showInfoDiv.appendChild(showElement);
+      }
+      const logoutButton = document.getElementById("logoutButton");
+      logoutButton.addEventListener("click", () => {
+        // Clear local storage
+        localStorage.clear();
+
+        // Optionally, redirect to a login page or home page
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+.logooo {
+  width: 30px;
+  margin: 10px;
+}
+.watching {
+  width: 40px;
+  float: right;
+  margin: 10px;
+}
+ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 30px;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+li {
+  color: white;
+  text-decoration: none;
+  float: right;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: #141414;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #181818;
+}
+
+header .logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  /* color: white; */
+  text-decoration: none;
+}
+
+.featured-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* width: 80%; */
+  padding: 20px;
+}
+
+.featured-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-row {
+  margin: 20px 0;
+}
+
+.movie-cards {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.movie-card {
+  margin-right: 10px;
+}
+
+.movie-card img {
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #181818;
+}
+.movieLink {
+  align-items: center;
+  text-align: center;
+  color: #e50914;
+}

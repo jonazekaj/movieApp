@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function fetchMovieData(movieTitle) {
-  const apiKey = "71d729ce"; // Your OMDb API key
+  const apiKey = "71d729ce";
   const url = `http://www.omdbapi.com/?t=${encodeURIComponent(
     movieTitle
   )}&apikey=${apiKey}`;
@@ -47,10 +47,16 @@ function displayMovieData(movie) {
   movieElement.className = "movie-container"; // Adding a class name to the div
 
   movieElement.innerHTML = `
-        <h1 class='movieTitle'><a href="${imdbUrl}" target="_blank">${movie.Title} (${movie.Year})</a></h1>
-        <p>${movie.Plot}</p>
+        <h1 class='movieTitle'><a class='movieLink' href="${imdbUrl}" target="_blank">${movie.Title} (${movie.Year})</a></h1>
+        <p class="movieInformation">${movie.Plot}</p>
         <img class='movieImg' src="${movie.Poster}" alt="Poster of ${movie.Title}">
     `;
 
   movieInfoDiv.appendChild(movieElement);
+  const logoutButton = document.getElementById("logoutButton");
+  logoutButton.addEventListener("click", () => {
+    localStorage.clear();
+
+    window.location.href = "index.html";
+  });
 }

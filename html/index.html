@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>NETFLIX</title>
   </head>
   <body>
-    <div class="container">
-      <img src="logo.svg" alt="logo" class="logo" />
-      <form id="loginForm" class="katrori">
-        <h1>Sign In</h1>
-        <input id="username" placeholder="Email or phone number" />
-        <input id="password" placeholder="Password" type="password" />
-        <button class="signn" type="submit">Sign In</button>
-      </form>
+    <div class="mainCont">
+      <div class="container">
+        <div class="katrori">
+          <form id="loginForm">
+            <h1 class="login">Log In</h1>
+            <input id="username" placeholder="Email or phone number" />
+            <input id="password" placeholder="Password" type="password" />
+            <button class="signn" type="submit">Sign In</button>
+          </form>
+          <p class="mainPara">
+            New to Netflix?
+            <a class="signup" href="signup.html">Sign up now.</a>
+          </p>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -42,6 +49,7 @@
 
           if (isValidLogin) {
             alert("Login successful!");
+            window.location.href = "homePage.html"; // Redirect to homepage.html
           } else {
             alert("Invalid credentials!");
           }

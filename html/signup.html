@@ -3,27 +3,32 @@
   <head>
     <title>Signup Form</title>
   </head>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/signup.css" />
+
   <body>
-    <form id="signupForm">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required />
-      <br />
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-      <br />
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-      <br />
-      <label for="confirmPassword">Confirm Password:</label>
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        required
-      />
-      <br />
-      <button type="submit">Signup</button>
-    </form>
+    <div class="mainCont">
+      <form id="signupForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <br />
+        <label for="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <br />
+        <button type="submit">Signup</button>
+      </form>
+    </div>
 
     <script>
       document
