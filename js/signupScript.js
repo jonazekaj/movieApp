@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupForm = document.getElementById("signupForm");
 
   signupForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
 
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
@@ -14,11 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Save user data in local storage
     const userData = {
       username: username,
       email: email,
-      // Note: Storing passwords in local storage is not secure
       password: password,
     };
 

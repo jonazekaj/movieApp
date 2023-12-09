@@ -25,6 +25,39 @@
       <button type="submit">Signup</button>
     </form>
 
-    <script src="/js/signupScript.js"></script>
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+
+          var storedData = localStorage.getItem("usersData");
+          var usersData = storedData ? JSON.parse(storedData) : {};
+
+          if (
+            usersData[username] ||
+            Object.values(usersData).some((user) => user.email === email)
+          ) {
+            alert("Username or email already exists!");
+            return;
+          }
+
+          usersData[username] = { username, email, password };
+          localStorage.setItem("usersData", JSON.stringify(usersData));
+
+          alert("Signup successful!");
+        });
+    </script>
   </body>
 </html>
